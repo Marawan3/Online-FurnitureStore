@@ -1,0 +1,88 @@
+
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+                
+                <div *ngFor="let tempProduct of products" class="col-md-3">
+                    <div class="product-box">
+                    <a routerLink="/products/{{ tempProduct.product_id }}">
+                    <img src="{{ tempProduct.pic_address }}" class="img-responsive">
+                    </a>
+                    
+                    <a routerLink="/products/{{ tempProduct.product_id }}">
+                    <h1>{{ tempProduct.productname }}</h1>
+                    <div class="price">{{ tempProduct.price | currency:'USD' }}</div>  
+                        <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Add to cart</button>
+                        
+                    </a>
+                    
+                    </div>
+                    </div>
+        </div>
+    </div>
+</div>
+    <!--
+<div class="list row">
+    <div class="col-md-8">
+        <div class="input-group mb-4">
+            <input
+            type="text"
+            class="form-control"
+            placeholder="Search by name"
+            [(ngModel)]="name"
+            />
+            <div class="input-group-append">
+                <button
+                class="btn btn-outline-secondary"
+                type="button"
+                (click)="searchByName()"
+                >
+                Search
+                </button>
+                </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h4>Product List</h4>
+        <ul class="list-group">
+        <li class="list-group-item"
+            *ngFor="let product of products; let i = index"
+            [class.active]="i == currentIndex"
+            (click)="setCurrentProduct(product, i)"
+            >
+            {{ product.productname }}
+        
+        
+        </li>
+        </ul>
+        <button class="m-4 btn btn-sm btn-danger" (click)="deleteAllProducts()">
+        Delete All
+        </button>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentProduct">
+            <h4>Product</h4>
+            <div>
+                <label><strong>Name:</strong></label> {{ currentProduct.product_id }}
+            </div>
+            <div>
+                <label><strong>Description:</strong></label>
+                {{ currentProduct.price }}
+            </div>
+            <img src="{{ currentProduct.pic_address }}" class="img-responsive">
+            <div>
+                <label><strong>Status:</strong></label>
+                {{ currentProduct.available ? "Available" : "Not available" }}
+            </div>
+            <a class="badge badge-warning" routerLink="/products/{{ currentProduct.product_id }}">
+            Edit
+            </a>
+        </div>
+        <div *ngIf="!currentProduct">
+            <br />
+            <p>Please click on a product</p>
+        </div>
+    </div>
+</div>
+-->

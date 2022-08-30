@@ -1,0 +1,165 @@
+
+<div class="main-content page-m">
+    <div class="section-content section-content-30">
+
+        <div class="container-fluid" style="max-width: 95%; left: 25px;">
+
+            <!-- call onSubmit() method on submit -->
+            <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+
+                <!-- customer form group -->
+                <div formGroupName="customer" class="form-area">
+                    <h3>Customer</h3>
+                    <div class="row">
+                        <div class="col-md-2"><label>First Name</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="firstName" type="text">
+                                <!-- validator method dirty=did user change field value, touched=did user change fields -->
+                                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+                                    class="alert alert-danger mt-1">
+
+                                    
+
+                                  
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><label>Last Name</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="lastName" type="text">
+
+                                <!-- validator method dirty=did user change field value, touched=did user change fields -->
+                                <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+                                    class="alert alert-danger mt-1">
+                                    
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><label>Email</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="email" type="text">
+
+                                <!-- validator method dirty=did user change field value, touched=did user change fields -->
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                                    class="alert alert-danger mt-1">
+
+                                    
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+            <div formGroupName="shippingAddress" class="form-area">
+                <h3>Shipping Address</h3>
+                <div class="row">
+                    <div class="col-md-2"><label>Street</label></div>
+                    <div class="col-md-9">
+                        <div class="input-space">
+                            <input formControlName="street" type="text">
+
+                            <!-- validation -->
+                            <div *ngIf="shippingAddressStreet.invalid && (shippingAddressStreet.dirty || shippingAddressStreet.touched)"
+                                class="alert alert-danger mt-1">
+
+                               
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"><label>Country</label></div>
+                    <div class="col-md-9">
+                        <div class="input-space">
+                            <select formControlName="country" (change)="getStates('shippingAddress')">
+                                <!-- ngValue is the country code used by the States dropdown method -->
+                                <option *ngFor="let country of countries" [ngValue]="country">
+
+                                    {{ country.name }}
+
+                                </option>
+                            </select>
+
+                            <!--  validation -->
+                            <div *ngIf="shippingAddressCountry.invalid && (shippingAddressCountry.dirty || shippingAddressCountry.touched)"
+                                class="alert alert-danger mt-1">
+
+
+                            </div>
+
+                        </div>
+                    </div>   
+                <div class="row">
+                    <div class="col-md-2"><label>City</label></div>
+                    <div class="col-md-9">
+                        <div class="input-space">
+                            <input formControlName="city" type="text">
+
+                            <!-- validation -->
+                            <div *ngIf="shippingAddressCity.invalid && (shippingAddressCity.dirty || shippingAddressCity.touched)"
+                                class="alert alert-danger mt-1">
+
+                                
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-2"><label>Zip Code</label></div>
+                    <div class="col-md-9">
+                        <div class="input-space">
+                            <input formControlName="zipCode" type="text">
+
+                            <!-- validation -->
+                            <div *ngIf="shippingAddressZipCode.invalid && (shippingAddressZipCode.dirty || shippingAddressZipCode.touched)"
+                                class="alert alert-danger mt-1">
+
+                                
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"><label>Street</label></div>
+                    <div class="col-md-9">
+                        <div class="input-space">
+                            <input formControlName="street" type="text">
+
+                            <!-- validation -->
+                            <div *ngIf="shippingAddressStreet.invalid && (shippingAddressStreet.dirty || shippingAddressStreet.touched)"
+                                class="alert alert-danger mt-1">
+
+                                
+
+                                
+
+
+                            </div>
+
+                        </div>
+                    </div>
+        </div>
+        
+</div>
